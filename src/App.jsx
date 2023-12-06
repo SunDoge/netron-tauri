@@ -14,10 +14,19 @@ import { BrowserHost } from "../netron/source/browser"
 import { onMount } from "solid-js";
 
 
+import { resolveResource } from "@tauri-apps/api/path";
+import { readTextFile } from "@tauri-apps/api/fs";
+
 function App() {
 
   onMount(async () => {
     const host = new BrowserHost();
+    host.request = async (file, encoding, base) => {
+      console.log(file, encoding, base)
+      const resourcePath = await resolveResource(file);
+      const data = await readTextFile(resourcePath);
+      return data;
+    }
     window.__view__ = new View(host);
     window.__view__.start();
     console.log('start view')
