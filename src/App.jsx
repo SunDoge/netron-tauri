@@ -29,6 +29,10 @@ function App() {
     //   const data = await readTextFile(resourcePath);
     //   return data;
     // }
+    host.require = async (id) => {
+      console.log(id);
+      return import("." + id + ".js");
+    }
     
     window.__view__ = new View(host);
     window.__view__.start();
