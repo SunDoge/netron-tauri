@@ -8,7 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "copy-js": "esbuild netron/source/*.js --minify --sourcemap --outdir=public",
+    "copy-json": "node scripts/minify-json.mjs"
   },
   "license": "MIT",
   "dependencies": {
