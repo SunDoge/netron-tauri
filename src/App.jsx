@@ -24,6 +24,8 @@ function App() {
       return import("." + id + ".js");
     }
 
+    // TODO: rewrite host.export
+
     window.__view__ = new View(host);
     window.__view__.start();
     console.log('start view')
