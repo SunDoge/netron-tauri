@@ -20,6 +20,7 @@ function App() {
 
     host.require = async (id) => {
       console.log(id);
+      /* @vite-ignore */
       return import("." + id + ".js");
     }
 
